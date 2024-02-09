@@ -24,7 +24,9 @@ import { Container, Row, Col } from "reactstrap";
 import AuthNavbar from "components/Navbars/AuthNavbar.js";
 import AuthFooter from "components/Footers/AuthFooter.js";
 
-import routes from "routes.js";
+// import routes from "routes.js";
+import simpleroutes from "simpleroutes.js";
+
 
 const Auth = (props) => {
   const mainContent = React.useRef(null);
@@ -58,16 +60,16 @@ const Auth = (props) => {
     <>
       <div className="main-content" ref={mainContent}>
         <AuthNavbar />
-        <div className="header bg-gradient-info py-7 py-lg-8">
+        <div className="header bg-gradient-purple py-7 py-lg-8">
           <Container>
             <div className="header-body text-center mb-7">
               <Row className="justify-content-center">
                 <Col lg="5" md="6">
-                  <h1 className="text-white">Welcome!</h1>
-                  <p className="text-lead text-light">
-                    Use these awesome forms to login or create new account in
-                    your project for free.
-                  </p>
+                  <h1 className="text-white">Bienvenue sur LeBonOccasi</h1>
+                  <h3>la plateforme de vente de voiture d'occasion</h3>
+                  {/* <p className="text-lead text-light">
+                    Le meilleur site de vente de voitures d'occasion
+                  </p> */}
                 </Col>
               </Row>
             </div>
@@ -92,8 +94,10 @@ const Auth = (props) => {
         <Container className="mt--8 pb-5">
           <Row className="justify-content-center">
             <Routes>
-              {getRoutes(routes)}
+              {getRoutes(simpleroutes)}
+              {/* <Route path="/inscription" element={<Navigate to="/auth/inscription" replace />} /> */}
               <Route path="*" element={<Navigate to="/auth/login" replace />} />
+
             </Routes>
           </Row>
         </Container>

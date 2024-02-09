@@ -28,8 +28,10 @@ import {
   Row,
   Col,
 } from "reactstrap";
+import { isLoggedIn } from "service/token/Token";
 
 const AdminNavbar = () => {
+  let islogged = isLoggedIn();
   return (
     <>
       <Navbar className="navbar-top navbar-horizontal navbar-dark" expand="md">
@@ -37,7 +39,7 @@ const AdminNavbar = () => {
           <NavbarBrand to="/" tag={Link}>
             <img
               alt="..."
-              src={require("../../assets/img/brand/argon-react-white.png")}
+              src={require("../../assets/img/brand/voiture-react-white.png")}
             />
           </NavbarBrand>
           <button className="navbar-toggler" id="navbar-collapse-main">
@@ -62,14 +64,16 @@ const AdminNavbar = () => {
                 </Col>
               </Row>
             </div>
-            <Nav className="ml-auto" navbar>
+            
+            {
+              islogged ? (<Nav className="ml-auto" navbar>
               <NavItem>
                 <NavLink className="nav-link-icon" to="/" tag={Link}>
                   <i className="ni ni-planet" />
-                  <span className="nav-link-inner--text">Dashboard</span>
+                  <span className="nav-link-inner--text">Accueil</span>
                 </NavLink>
               </NavItem>
-              <NavItem>
+              {/* <NavItem>
                 <NavLink
                   className="nav-link-icon"
                   to="/auth/register"
@@ -94,8 +98,9 @@ const AdminNavbar = () => {
                   <i className="ni ni-single-02" />
                   <span className="nav-link-inner--text">Profile</span>
                 </NavLink>
-              </NavItem>
-            </Nav>
+              </NavItem> */}
+            </Nav>) : (<p></p>)
+            }
           </UncontrolledCollapse>
         </Container>
       </Navbar>

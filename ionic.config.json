@@ -1,0 +1,8 @@
+{
+    "name": "fetch-list-test",
+    "integrations": {
+      "capacitor": {}
+    },
+    "type": "react"
+  }
+  
