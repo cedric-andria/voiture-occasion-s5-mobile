@@ -60,7 +60,9 @@ const Inscription = () => {
     }
     console.log(data);
     // let temp = await callPost("https://unnatural-coat-production.up.railway.app/user/login", JSON.stringify(data), false);
-    let temp = await callPost("http://localhost:8080/user", JSON.stringify(data), false);
+    // let temp = await callPost("http://localhost:8080/user", JSON.stringify(data), false);
+    let temp = await callPost("https://back-end-voiture-occasion-production.up.railway.app/user", JSON.stringify(data), false);
+
     localStorage.setItem('token', temp.access_token);
     if (localStorage.getItem('token') === 'undefined') {
       console.log("undefined tokoa");

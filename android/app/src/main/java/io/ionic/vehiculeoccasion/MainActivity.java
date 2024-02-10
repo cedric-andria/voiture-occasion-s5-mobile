@@ -1,4 +1,4 @@
-package io.ionic.template;
+package io.ionic.vehiculeoccasion;
 
 import com.getcapacitor.BridgeActivity;
 

@@ -20,7 +20,7 @@ import { useState } from "react";
 import { NavLink as NavLinkRRD, Link } from "react-router-dom";
 // nodejs library to set properties for components
 import { PropTypes } from "prop-types";
-
+import { useNavigate } from "react-router-dom";
 // reactstrap components
 import {
   Button,
@@ -56,6 +56,7 @@ var ps;
 
 const Sidebar = (props) => {
   const [collapseOpen, setCollapseOpen] = useState();
+  const navigate = useNavigate();
   // verifies if routeName is the one active (in browser input)
   const activeRoute = (routeName) => {
     return props.location.pathname.indexOf(routeName) > -1 ? "active" : "";
@@ -148,7 +149,7 @@ const Sidebar = (props) => {
                 <span className="avatar avatar-sm rounded-circle">
                   <img
                     alt="..."
-                    src={require("../../assets/img/theme/team-1-800x800.jpg")}
+                    src={require("../../assets/img/theme/coureur.png")}
                   />
                 </span>
               </Media>
@@ -174,7 +175,11 @@ const Sidebar = (props) => {
                 <span>Support</span>
               </DropdownItem> */}
               <DropdownItem divider />
-              <DropdownItem href="#pablo" onClick={(e) => e.preventDefault()}>
+              <DropdownItem href="#pablo" onClick={(e) => {
+                e.preventDefault();
+                localStorage.clear();
+                navigate("/auth/login")
+              }}>
                 <i className="ni ni-user-run" />
                 <span>Logout</span>
               </DropdownItem>

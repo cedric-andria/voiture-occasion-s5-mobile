@@ -1,6 +1,6 @@
 {
-  "appId": "io.ionic.template",
-  "appName": "fetch-list-test",
+  "appId": "io.ionic.vehiculeoccasion",
+  "appName": "vehiculeoccasion",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "build",
